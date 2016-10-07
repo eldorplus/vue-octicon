@@ -1,37 +1,39 @@
 <template>
-  <a href="//github.com/Justineo/vue-octicon" title="View on GitHub"><figure id="logo"><octicon name="mark-github" scale="8"></octicon></figure></a>
-  <h1>Vue-Octicon</h1>
-  <p class="desc">Octicon component for Vue.js, using inline SVG.</p>
+  <main>
+    <a href="//github.com/Justineo/vue-octicon" title="View on GitHub"><figure id="logo"><octicon name="mark-github" scale="8"></octicon></figure></a>
+    <h1>Vue-Octicon</h1>
+    <p class="desc">Octicon component for Vue.js, using inline SVG.</p>
 
-  <h2>Basic</h2>
-  <p><octicon name="git-pull-request"></octicon></p>
-  <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"git-pull-request"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
+    <h2>Basic</h2>
+    <p><octicon name="git-pull-request"></octicon></p>
+    <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"git-pull-request"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
-  <h2>Scale</h2>
-  <p><octicon name="repo" scale="3"></octicon></p>
-  <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"repo"</span> <span class="attr">scale</span>=<span class="val">"3"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
+    <h2>Scale</h2>
+    <p><octicon name="repo" scale="3"></octicon></p>
+    <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"repo"</span> <span class="attr">scale</span>=<span class="val">"3"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
-  <h2>Spin</h2>
-  <p><octicon name="sync" spin></octicon></p>
-  <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"sync"</span> <span class="attr">spin</span>&gt;&lt;/octicon&gt;</code></pre></figure>
+    <h2>Spin</h2>
+    <p><octicon name="sync" spin></octicon></p>
+    <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"sync"</span> <span class="attr">spin</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
-  <h2>Flip</h2>
-  <p><octicon name="zap" flip="vertical"></octicon></p>
-  <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"zap"</span> <span class="attr">flip</span>=<span class="val">"vertical"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
+    <h2>Flip</h2>
+    <p><octicon name="zap" flip="vertical"></octicon></p>
+    <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"zap"</span> <span class="attr">flip</span>=<span class="val">"vertical"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
-  <h2>Label</h2>
-  <p><small>Accessible for screen readers, etc.</small></p>
-  <p><octicon name="repo-forked" label="Forked Repository"></octicon></p>
-  <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"repo-forked"</span> <span class="attr">label</span>=<span class="val">"Forked Repository"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
+    <h2>Label</h2>
+    <p><small>Accessible for screen readers, etc.</small></p>
+    <p><octicon name="repo-forked" label="Forked Repository"></octicon></p>
+    <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"repo-forked"</span> <span class="attr">label</span>=<span class="val">"Forked Repository"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
-  <h2>Custom icons</h2>
-  <p><small>You can register your own icons.</small></p>
-  <p><octicon name="taobao"></octicon></p>
-  <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"taobao"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
+    <h2>Custom icons</h2>
+    <p><small>You can register your own icons.</small></p>
+    <p><octicon name="taobao"></octicon></p>
+    <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"taobao"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
-  <footer>
-    <a href="//github.com/Justineo">@Justineo</a>|<a href="//github.com/Justineo/vue-octicon/blob/master/LICENSE">MIT License</a>|<a href="//github.com/Justineo/vue-octicon">View on GitHub</a>
-  </footer>
+    <footer>
+      <a href="//github.com/Justineo">@Justineo</a>|<a href="//github.com/Justineo/vue-octicon/blob/master/LICENSE">MIT License</a>|<a href="//github.com/Justineo/vue-octicon">View on GitHub</a>
+    </footer>
+  </main>
 </template>
 
 <style>
@@ -137,3 +139,7 @@ footer a:hover {
   border-bottom: 3px solid #42b983;
 }
 </style>
+
+<script>
+import '../src/icons'
+</script>

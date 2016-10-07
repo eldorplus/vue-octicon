@@ -1,8 +1,8 @@
-var Vue = require('vue')
-var Demo = require('./Demo.vue')
-var Octicon = require('../src/components/Octicon.vue')
+import Vue from 'vue'
+import Demo from './Demo.vue'
+import Octicon from '../src/components/Octicon.vue'
 
-Vue.component('octicon', Octicon);
+Vue.component('octicon', Octicon)
 
 Octicon.register({
   taobao: {
@@ -13,8 +13,9 @@ Octicon.register({
 })
 
 new Vue({
-  el: 'body',
+  el: '#demo',
   components: {
     demo: Demo
-  }
+  },
+  render: h => h(Demo)
 })

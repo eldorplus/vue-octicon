@@ -1,4 +1,4 @@
-module.exports = {
+{
   "alert": {
     "width": 16,
     "height": 16,

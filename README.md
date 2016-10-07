@@ -1,22 +1,12 @@
 # Vue-Octicon
 
-> Octicon component for Vue.js, using inline SVG.
+> Font Awesome component for Vue.js, using inline SVG.
 
-*This project is a proof of concept for pure frontend inline SVG icons.*
-
-Vue-Octicon is built upon [Octicons](https://octicons.github.com/) `v3.5.0` and depends on [Vue.js](https://vuejs.org/) `v1.0.17`+.
+Vue-Octicon is built upon [Octicons](https://octicons.github.com/) `v3.5.0` and depends on [Vue.js](https://vuejs.org/) `v2.0.1`+.
 
 ## Installation
 
-### 
-
-Just download `dist/vue-octicon.js` and include it in your HTML file:
-
-```html
-<script src="path/to/vue-octicon/dist/vue-octicon.js"></script>
-```
-
-### npm 
+### NPM (Recommended)
 
 ```bash
 $ npm install vue-octicon
@@ -26,6 +16,14 @@ $ npm install vue-octicon
 
 ```bash
 $ bower install vue-octicon
+```
+
+### manual
+
+Just download `dist/vue-octicon.js` and include it in your HTML file:
+
+```html
+<script src="path/to/vue-octicon/dist/vue-octicon.js"></script>
 ```
 
 ## Usage
@@ -40,16 +38,32 @@ $ bower install vue-octicon
 <octicon name="repo-forked" label="Forked Repository"></octicon>
 ```
 
-### CommonJS
+### ES Modules with NPM & vue-loader (Recommended)
 
 ```js
-var Vue = require('path/to/vue')
+import Vue from 'vue'
+import Octicon from 'vue-octicon/src/components/Octicon.vue'
+
+// Pick one way betweem the 2 following ways
+
+// only import the icons you use to reduce bundle size
+import 'vue-octicon/src/icons/flag'
+
+// or import all icons if you don't care about bundle size
+import 'vue-octicon/src/icons'
+```
+
+
+### CommonJS with NPM
+
+```js
+var Vue = require('vue')
 
 // requiring the UMD module
-var Octicon = require('path/to/vue-octicon/dist/vue-octicon')
+var Octicon = require('vue-octicon')
 
 // or with vue-loader you can require the src directly
-var Octicon = require('path/to/vue-octicon/src/components/Octicon.vue')
+var Octicon = require('vue-octicon/src/components/Octicon.vue')
 
 // register component to use
 ```
@@ -59,7 +73,7 @@ var Octicon = require('path/to/vue-octicon/src/components/Octicon.vue')
 ```js
 require.config({
   paths: {
-    'vue-octicon': 'path/to/vue-conticon/dist/vue-octicon'
+    'vue-octicon': 'path/to/vue-octicon'
   }
 })
 
@@ -70,7 +84,7 @@ require(['vue-octicon'], function (Octicon) {
 
 ### Global variable
 
-The component class is exposed as `window.VueOcticon`.
+The component class is exposed as `window.VueAwesome`.
 
 ## Local development
 
@@ -81,12 +95,17 @@ $ npm run dev
 
 Open `http://localhost:8080/demo` to see the demo.
 
-## Customize
+### Updating icons
+
+Don't touch files in `src/icons` but update `assets/icons.json` instead and run `npm run icons` to re-generate icon module files.
+
+## Registering custom icons
 
 You can register custom icons like this:
 
 ```js
-var Octicon = require('path/to/vue-octicon/src/components/Octicon.vue')
+// ES Modules with vue-loader
+import Octicon from 'vue-octicon/src/components/Octicon.vue'
 
 Octicon.register({
   taobao: {
