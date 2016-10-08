@@ -84,7 +84,7 @@ require(['vue-octicon'], function (Octicon) {
 
 ### Global variable
 
-The component class is exposed as `window.VueAwesome`.
+The component class is exposed as `window.VueOcticon`.
 
 ## Local development
 
