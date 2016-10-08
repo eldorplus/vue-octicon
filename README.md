@@ -1,6 +1,6 @@
 # Vue-Octicon
 
-> Font Awesome component for Vue.js, using inline SVG.
+> Octicon component for Vue.js, using inline SVG.
 
 Vue-Octicon is built upon [Octicons](https://octicons.github.com/) `v3.5.0` and depends on [Vue.js](https://vuejs.org/) `v2.0.1`+.
 
