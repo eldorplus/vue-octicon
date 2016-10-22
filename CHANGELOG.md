@@ -1,3 +1,10 @@
+2.0.2
+* Fix `.npmignore`.
+
+2.0.1
+* Removed project configs for distribution to prevent problems with existing project templates.
+* Updated readme and build.
+
 2.0.0
 * Switch to Vue.js dependency to `2.0`.
 * Added support for users to specify used icons to reduce bundle size.

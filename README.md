@@ -42,19 +42,19 @@ Just download `dist/vue-octicon.js` and include it in your HTML file:
 
 ```js
 import Vue from 'vue'
-import Octicon from 'vue-octicon/src/components/Octicon.vue'
+import Octicon from 'vue-octicon/components/Octicon.vue'
 
 // Pick one way betweem the 2 following ways
 
 // only import the icons you use to reduce bundle size
-import 'vue-octicon/src/icons/flag'
+import 'vue-octicon/icons/repo'
 
 // or import all icons if you don't care about bundle size
-import 'vue-octicon/src/icons'
+import 'vue-octicon/icons'
 ```
 
 
-### CommonJS with NPM
+### CommonJS with NPM without ES Next support
 
 ```js
 var Vue = require('vue')
@@ -63,7 +63,7 @@ var Vue = require('vue')
 var Octicon = require('vue-octicon')
 
 // or with vue-loader you can require the src directly
-var Octicon = require('vue-octicon/src/components/Octicon.vue')
+var Octicon = require('vue-octicon/components/Octicon.vue')
 
 // register component to use
 ```
