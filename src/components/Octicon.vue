@@ -1,6 +1,6 @@
 <template>
-  <svg version="1.1" :class="clazz" :role="label ? 'img' : 'presentation'" :aria-label="label" :width="width" :height="height" :viewBox="box" :style="style">
-    <path :d="icon.d" />
+  <svg version="1.1" :class="clazz" :role="label ? 'img' : 'presentation'" :aria-label="label" :x="x" :y="y" :width="width" :height="height" :viewBox="box" :style="style">
+    <slot><path v-if="icon" :d="icon.d" /></slot>
   </svg>
 </template>
 
@@ -10,16 +10,24 @@
   fill: currentColor;
 }
 
-.octicon.flip-horizontal {
+.octicon > path {
+  transform-origin: 50% 50%;
+}
+
+.octicon-flip-horizontal > path {
   transform: scale(-1, 1);
 }
 
-.octicon.flip-vertical {
+.octicon-flip-vertical > path {
   transform: scale(1, -1);
 }
 
-.octicon.spin {
+.octicon-spin > path {
   animation: octicon-spin 1s 0s infinite linear;
+}
+
+.octicon-inverse {
+  color: #fff;
 }
 
 @keyframes octicon-spin {
@@ -38,54 +46,74 @@ import { warn } from '../util'
 let icons = {}
 
 export default {
+  name: 'octicon',
   props: {
     name: {
       type: String,
-      required: true,
-      validator: function (val) {
-        return val in icons
+      validator (val) {
+        if (val) {
+          return val in icons
+        }
+        return null
       }
     },
     scale: [Number, String],
     spin: Boolean,
+    inverse: Boolean,
     flip: {
-      validator: function (val) {
+      validator (val) {
         return val === 'horizontal' || val === 'vertical'
       }
     },
     label: String
   },
+  data () {
+    return {
+      x: false,
+      y: false,
+      childrenWidth: 0,
+      childrenHeight: 0,
+      outerScale: 1
+    }
+  },
   computed: {
-    normalizedScale() {
+    normalizedScale () {
       let scale = this.scale
       scale = typeof scale === 'undefined' ? 1 : Number(scale)
       if (isNaN(scale) || scale <= 0) {
         warn(`Invalid prop: prop "scale" should be a number over 0.`, this)
-        return 1
+        return this.outerScale
       }
-      return scale
+      return scale * this.outerScale
     },
-    clazz() {
+    clazz () {
       return {
         'octicon': true,
-        spin: this.spin,
-        'flip-horizontal': this.flip === 'horizontal',
-        'flip-vertical': this.flip === 'vertical'
+        'octicon-spin': this.spin,
+        'octicon-flip-horizontal': this.flip === 'horizontal',
+        'octicon-flip-vertical': this.flip === 'vertical',
+        'octicon-inverse': this.inverse
       }
     },
-    icon() {
-      return icons[this.name]
+    icon () {
+      if (this.name) {
+        return icons[this.name]
+      }
+      return null
     },
-    box() {
-      return `0 0 ${this.icon.width} ${this.icon.height}`
+    box () {
+      if (this.icon) {
+        return `0 0 ${this.icon.width} ${this.icon.height}`
+      }
+      return `0 0 ${this.width} ${this.height}`
     },
-    width() {
-      return this.icon.width * this.normalizedScale
+    width () {
+      return this.childrenWidth || this.icon && this.icon.width * this.normalizedScale || 0
     },
-    height() {
-      return this.icon.height  * this.normalizedScale
+    height () {
+      return this.childrenHeight || this.icon && this.icon.height * this.normalizedScale || 0
     },
-    style() {
+    style () {
       if (this.normalizedScale === 1) {
         return false
       }
@@ -94,7 +122,27 @@ export default {
       }
     }
   },
-  register: function (data) {
+  mounted () {
+    if (this.icon) {
+      return
+    }
+    this.$children.forEach(child => {
+      child.outerScale = this.normalizedScale
+    })
+    let width = 0
+    let height = 0
+    this.$children.forEach(child => {
+      width = Math.max(width, child.width)
+      height= Math.max(height, child.height)
+    })
+    this.childrenWidth = width
+    this.childrenHeight = height
+    this.$children.forEach(child => {
+      child.x = (width - child.width) / 2
+      child.y = (height - child.height) / 2
+    })
+  },
+  register (data) {
     for (let name in data) {
       icons[name] = data[name]
     }

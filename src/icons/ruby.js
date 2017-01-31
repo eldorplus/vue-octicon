@@ -1,3 +1,3 @@
 import Octicon from '../components/Octicon.vue'
 
-Octicon.register({"ruby":{"width":16,"height":16,"d":"M13 6L8 11V4h3l2 2z m3 0L8 14 0 6l4-4h8l4 4zM8 12.5l6.5-6.5-3-3H4.5L1.5 6l6.5 6.5z"}})
+Octicon.register({"ruby":{"width":16,"height":16,"d":"M13 6l-5 5V4h3l2 2zm3 0l-8 8-8-8 4-4h8l4 4zm-8 6.5L14.5 6l-3-3h-7l-3 3L8 12.5z"}})

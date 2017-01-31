@@ -25,6 +25,19 @@
     <p><octicon name="repo-forked" label="Forked Repository"></octicon></p>
     <figure><pre><code>&lt;octicon <span class="attr">name</span>=<span class="val">"repo-forked"</span> <span class="attr">label</span>=<span class="val">"Forked Repository"</span>&gt;&lt;/octicon&gt;</code></pre></figure>
 
+    <h2>Stacked icons</h2>
+    <p><small>Use stacked icons like in FontAwesome. Even more powerful.</small></p>
+    <p>
+      <octicon label="No Bugs">
+        <octicon name="bug"></octicon>
+        <octicon name="circle-slash" scale="2" class="alert"></octicon>
+      </octicon>
+    </p>
+    <figure><pre><code>&lt;octicon <span class="attr">label</span>=<span class="val">"No Bugs"</span>&gt;
+  &lt;octicon <span class="attr">name</span>=<span class="val">"bug"</span>&gt;&lt;/octicon&gt;
+  &lt;octicon <span class="attr">name</span>=<span class="val">"circle-slash"</span> <span class="attr">scale</span>=<span class="val">"2"</span> <span class="attr">class</span>=<span class="val">"alert"</span>&gt;&lt;/octicon&gt;
+&lt;/octicon&gt;</code></pre></figure>
+
     <h2>Custom icons</h2>
     <p><small>You can register your own icons.</small></p>
     <p><octicon name="taobao"></octicon></p>
@@ -99,6 +112,7 @@ pre {
   padding: 0.8em;
   background-color: #f9f9f9;
   box-shadow: 0 1px 2px rgba(0,0,0,0.125);
+  text-align: left;
   line-height: 1.1;
   color: #2973b7;
 }
@@ -137,6 +151,10 @@ footer a {
 footer a:hover {
   padding-bottom: 3px;
   border-bottom: 3px solid #42b983;
+}
+.alert {
+  color: #c33;
+  opacity: .8;
 }
 </style>
 
