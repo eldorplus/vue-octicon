@@ -1,3 +1,9 @@
+2.1.1
+* Added customizable `viewBox`.
+
+2.1.0
+* Added support for stacked icons.
+
 2.0.2
 * Fix `.npmignore`.
 
