@@ -103,6 +103,9 @@ export default {
     },
     box () {
       if (this.icon) {
+        if (this.icon.viewBox) {
+          return this.icon.viewBox
+        }
         return `0 0 ${this.icon.width} ${this.icon.height}`
       }
       return `0 0 ${this.width} ${this.height}`
